@@ -1,6 +1,9 @@
 #!/bin/bash
 
-#Note, this is a script that I started to build after repeatedly needing to roll out builds. I thought about creating a custom Kali Distro, however with needing to install custom tools from github I decided on a modifiable script instead. When I started to build the script, I built upon the foundation that Matthew Clark May had used in a Repository he created, but no longer maintains. Credit where it's due.
+#Note, this is a script that I started to build after repeatedly needing to roll out builds. 
+#I thought about creating a custom Kali Distro, however with needing to install custom tools from github 
+#I decided on a modifiable script instead. When I started to build the script, 
+#I built upon the foundation that Matthew Clark May had used in a Repository he created, but no longer maintains. Credit where it's due.
 
 sudo apt-get update
 sudo apt-get upgrade -y
