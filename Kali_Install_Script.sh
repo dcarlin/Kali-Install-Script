@@ -148,5 +148,11 @@ echo "-------------------------------------------------------------------"
 sudo git clone https://github.com/DanMcInerney/icebreaker.git
 
 echo "-------------------------------------------------------------------"
-echo "--------------- All Tools Installed! Go Break Some Stuff! ----------------"
+echo "--------------- Icebreaker Installed, Next Tool! ----------------"
+echo "-------------------------------------------------------------------"
+
+sudo git clone https://bitbucket.org/grimhacker/office365userenum.git
+
+echo "-------------------------------------------------------------------"
+echo "--------------- All Tools Installed! Go Break Some Stuff! ---------"
 echo "-------------------------------------------------------------------"
