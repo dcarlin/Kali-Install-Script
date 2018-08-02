@@ -154,5 +154,25 @@ echo "-------------------------------------------------------------------"
 sudo git clone https://bitbucket.org/grimhacker/office365userenum.git
 
 echo "-------------------------------------------------------------------"
+echo "------------- O365 Pass Spray Tool Installed, Next Tool! ----------"
+echo "-------------------------------------------------------------------"
+
+sudo mkdir /opt/osint
+cd osint/
+sudo git clone https://github.com/mdsecactivebreach/LinkedInt.git
+cd LinkedInt/
+sudo pip install beautifulsoup4
+sudo pip install thready
+cd ..
+
+echo "-------------------------------------------------------------------"
+echo "--------------- LinkedInt Installed, Next Tool! ----------------"
+echo "-------------------------------------------------------------------"
+
+sudo git clone https://github.com/0x09AL/raven.git
+cd raven/
+sudo bash setup.sh -y
+
+echo "-------------------------------------------------------------------"
 echo "--------------- All Tools Installed! Go Break Some Stuff! ---------"
 echo "-------------------------------------------------------------------"
