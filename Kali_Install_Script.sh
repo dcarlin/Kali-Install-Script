@@ -11,6 +11,7 @@ sudo apt-get dist-upgrade -y
 sudo apt-get install git -y
 sudo apt-get install python3 -y
 sudo apt-get install screen -y
+pip install ldapdomaindump
 
 cd /opt
 ls | xargs -I{} git -C {} pull
@@ -113,6 +114,7 @@ sudo git clone https://github.com/elceef/dnstwist.git
 sudo apt-get install python-dnspython python-geoip python-whois python-requests python-ssdeep python-cffi -y
 cd /opt
 
+
 echo "-------------------------------------------------------------------"
 echo "--------------- DnsTwist Installed, Next Tool! ----------------"
 echo "-------------------------------------------------------------------"
@@ -186,6 +188,18 @@ sudo systemctl enable docker
 
 echo "-------------------------------------------------------------------"
 echo "--------------- Docker Installed, Next Tool! ----------------"
+echo "-------------------------------------------------------------------"
+
+sudo apt-get install -y libssl-dev libffi-dev python-dev build-essential
+pip install --user pipenv
+sudo git clone --recursive https://github.com/byt3bl33d3r/CrackMapExec
+cd CrackMapExec && pipenv install
+pipenv shell
+python setup.py install
+cd /opt
+
+echo "-------------------------------------------------------------------"
+echo "--------------- Crackmapexec Installed, Next Tool! ----------------"
 echo "-------------------------------------------------------------------"
 
 echo "-------------------------------------------------------------------"
