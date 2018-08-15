@@ -202,7 +202,7 @@ echo "-------------------------------------------------------------------"
 echo "--------------- Crackmapexec Installed, Next Tool! ----------------"
 echo "-------------------------------------------------------------------"
 
-sudo https://github.com/derv82/wifite2.git
+sudo git clone https://github.com/derv82/wifite2.git
 
 echo "-------------------------------------------------------------------"
 echo "--------------- Wifite2 Installed, Next Tool! ----------------"
