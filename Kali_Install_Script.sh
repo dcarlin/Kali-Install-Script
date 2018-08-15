@@ -9,6 +9,15 @@ sudo apt-get update
 sudo apt-get upgrade -y
 sudo apt-get dist-upgrade -y
 sudo apt-get install git -y
+sudo apt-get install python3 -y
+sudo apt-get install screen -y
+
+cd /opt
+ls | xargs -I{} git -C {} pull
+
+echo "-------------------------------------------------------------------"
+echo "----- Updated Github Tools, Next Phase ------"
+echo "-------------------------------------------------------------------"
 
 echo "-------------------------------------------------------------------"
 echo "----- Update, Upgrade, and Dist-Upgrade Complete, Next Phase ------"
@@ -27,21 +36,10 @@ echo "-------------------------------------------------------------------"
 echo "--------------- Metasploit configured, Next Phase -----------------"
 echo "-------------------------------------------------------------------"
 
-sudo mkdir /opt/Bruteforcing
-cd /opt/Bruteforcing/
-sudo git clone https://github.com/1N3/BruteX.git
-cd BruteX/
-sudo bash install.sh -y
-cd ..
-
-echo "-------------------------------------------------------------------"
-echo "--------------- BruteX Installed, Next Tool! ----------------"
-echo "-------------------------------------------------------------------"
-
 sudo git clone https://github.com/x90skysn3k/brutespray.git
 cd brutespray/
 sudo pip install -r requirements.txt
-cd ..
+cd /opt
 
 echo "-------------------------------------------------------------------"
 echo "--------------- Brutespray Installed, Next Tool! ----------------"
@@ -51,8 +49,7 @@ sudo git clone https://github.com/ztgrace/changeme.git
 cd changeme/
 sudo apt-get install unixodc-dev -y
 sudo pip install -r requirements.txt
-cd ..
-cd ..
+cd /opt
 
 echo "-------------------------------------------------------------------"
 echo "--------------- Changeme Installed, Next Tool! ----------------"
@@ -74,21 +71,10 @@ echo "-------------------------------------------------------------------"
 echo "--------------- SecLists Installed, Next Tool! ----------------"
 echo "-------------------------------------------------------------------"
 
-sudo mkdir Recon
-cd Recon
-sudo git clone https://github.com/x1mdev/ReconPi.git
-cd ReconPi/
-sudo ./install.sh
-cd ..
-
-echo "-------------------------------------------------------------------"
-echo "--------------- ReconPi Installed, Next Tool! ----------------"
-echo "-------------------------------------------------------------------"
-
 sudo git clone https://github.com/leebaird/discover.git
 cd discover/
 sudo ./update.sh
-cd /opt/Recon/
+cd /opt
 
 echo "-------------------------------------------------------------------"
 echo "--------------- Discover Installed, It installed Lots!! Next Tool! ----------------"
@@ -96,12 +82,17 @@ echo "-------------------------------------------------------------------"
 
 sudo git clone https://github.com/1N3/Sn1per.git
 cd Sn1per/
+echo "Follow Prompts!!"
 sudo ./install.sh
-cd ..
+cd /opt
 
 echo "-------------------------------------------------------------------"
 echo "--------------- Sn1per Installed, Next Tool! ----------------"
 echo "-------------------------------------------------------------------"
+
+sudo git clone https://github.com/maaaaz/impacket.git && cd impacket
+pip install .
+cd /opt
 
 sudo git clone https://github.com/jhaddix/domain.git
 
@@ -119,9 +110,8 @@ echo "--------------- Domained Installed, Next Tool! ----------------"
 echo "-------------------------------------------------------------------"
 
 sudo git clone https://github.com/elceef/dnstwist.git
-cd dnstwist/
 sudo apt-get install python-dnspython python-geoip python-whois python-requests python-ssdeep python-cffi -y
-cd ..
+cd /opt
 
 echo "-------------------------------------------------------------------"
 echo "--------------- DnsTwist Installed, Next Tool! ----------------"
@@ -157,21 +147,46 @@ echo "-------------------------------------------------------------------"
 echo "------------- O365 Pass Spray Tool Installed, Next Tool! ----------"
 echo "-------------------------------------------------------------------"
 
-sudo mkdir /opt/osint
-cd osint/
 sudo git clone https://github.com/mdsecactivebreach/LinkedInt.git
-cd LinkedInt/
 sudo pip install beautifulsoup4
 sudo pip install thready
-cd ..
+cd /opt
 
 echo "-------------------------------------------------------------------"
 echo "--------------- LinkedInt Installed, Next Tool! ----------------"
 echo "-------------------------------------------------------------------"
 
-sudo git clone https://github.com/0x09AL/raven.git
-cd raven/
-sudo bash setup.sh -y
+export DEBIAN_FRONTEND="noninteractive"
+
+# remove previously installed Docker
+sudo apt-get remove docker docker-engine docker.io* lxc-docker*
+
+# install dependencies 4 cert
+sudo apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+
+# add Docker repo gpg key
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+
+echo "deb https://download.docker.com/linux/debian stretch stable" >> /etc/apt/sources.list 
+
+sudo apt-get update
+
+# install Docker
+sudo apt-get install docker-ce
+
+# run Hellow World image
+sudo docker run hello-world
+
+# manage Docker as a non-root user
+sudo groupadd docker
+sudo usermod -aG docker $USER
+
+# configure Docker to start on boot
+sudo systemctl enable docker
+
+echo "-------------------------------------------------------------------"
+echo "--------------- Docker Installed, Next Tool! ----------------"
+echo "-------------------------------------------------------------------"
 
 echo "-------------------------------------------------------------------"
 echo "--------------- All Tools Installed! Go Break Some Stuff! ---------"
