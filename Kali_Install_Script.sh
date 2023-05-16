@@ -25,6 +25,7 @@ echo "----- Update, Upgrade, and Dist-Upgrade Complete, Next Phase ------"
 echo "-------------------------------------------------------------------"
 
 sudo apt-get install htop hexedit exiftool exif -y 
+sudo apt-get install terminator -y
 
 echo "-------------------------------------------------------------------"
 echo "---------- Basic Tools Installed, Next Phase ------------"
@@ -37,10 +38,10 @@ echo "-------------------------------------------------------------------"
 echo "--------------- Metasploit configured, Next Phase -----------------"
 echo "-------------------------------------------------------------------"
 
-sudo git clone https://github.com/x90skysn3k/brutespray.git
-cd brutespray/
-sudo pip install -r requirements.txt
-cd /opt
+apt-get install brutespray -y
+apt-get install -y gobuster
+apt-get install -y amass
+apt-get install -y masscan
 
 echo "-------------------------------------------------------------------"
 echo "--------------- Brutespray Installed, Next Tool! ----------------"
